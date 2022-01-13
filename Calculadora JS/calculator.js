@@ -4,13 +4,15 @@ const readlineSync = require('readline-sync');
 function calculator(){
   console.log("\t C A L C U L A T O R");
   let firstNumber, secondNumber = 0; 
+  let exit;
 
   do{
-    var operation = readlineSync.question('Choose an operation: \n \t [+] [-] [*] [/] \n\n\t Press E to exit \n');
+    let operation = readlineSync.question('Choose an operation: \n \t [+] [-] [*] [/] \n\n\t Press E to exit \n');
+    
 
     if((operation === "E") || (operation === "e")){
       console.log('\n Leaving Calculator. .  .\n');
-      var exit = 0; // *Is boolean applicable? **why let doenst work
+      exit = 0;  
       
     }else{
       firstNumber = parseFloat(readlineSync.question('\nInsert the first number: '));
@@ -24,11 +26,10 @@ function calculator(){
       }else if(operation == '/'){
         op.divNumber(firstNumber,secondNumber);
       }else{
-        console.log("\nInvalid opertation!\n")
+        console.log("\nInvalid opertation!\n");
       }
     }
-  } while(exit!== 0); 
-
+  } while(exit!= 0); 
 }
 
 calculator();
